@@ -1,6 +1,4 @@
-Here’s a **straight, no-BS cheat sheet** for `rm`, `rm -rf *`, and `cd`. I’ll give you the commands **and** call out the foot-guns so you don’t nuke your system like an amateur.
 
----
 
 ## `cd` (change directory)
 

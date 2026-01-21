@@ -1,124 +1,167 @@
 
 
-## `cd` (change directory)
+# SHELL COMMAND CHEATSHEET
 
-### Basics
+## NAVIGATION
 
-```bash
-cd dir_name        # go into dir_name
-cd ..              # go up one level
-cd ../..           # go up two levels
-cd /               # go to filesystem root
-cd ~               # go to your home directory
-cd                 # same as cd ~
-```
-
-### Useful shortcuts
-
-```bash
-cd -               # switch to previous directory
-cd ~/projects      # absolute path from home
-cd /var/log        # absolute path from root
-```
-
-### Reality check
-
-* `cd` **does nothing dangerous by itself**
-* But where you `cd` **determines how dangerous your next rm is**
-
----
-
-## `rm` (remove files)
-
-### Safe-ish usage
-
-```bash
-rm file.txt              # delete a single file
-rm file1 file2           # delete multiple files
-rm *.log                 # delete all .log files
-rm -i file.txt           # interactive (asks before deleting)
-```
-
-### Directories
-
-```bash
-rm -r folder/            # delete folder and contents
-rm -ri folder/           # recursive + interactive (smart)
+```sh
+pwd                     # print current directory
+ls                      # list files
+ls -l                   # long listing
+ls -a                   # include hidden files
+ls -lh                  # human-readable sizes
+cd /path/to/dir         # change directory
+cd ..                   # go up one directory
+cd ~                    # go home
+cd -                    # previous directory
 ```
 
 ---
 
-## `rm -rf` (the nuclear option)
+## FILE OPERATIONS
 
-### What the flags mean
-
-* `-r` → recursive (directories + contents)
-* `-f` → force (no prompts, no mercy)
-
-### Common patterns
-
-```bash
-rm -rf folder/           # delete folder completely
-rm -rf folder1 folder2   # delete multiple folders
+```sh
+touch file.txt          # create empty file
+cat file.txt            # view file
+less file.txt           # scrollable view
+head file.txt           # first 10 lines
+tail file.txt           # last 10 lines
+tail -f file.txt        # follow live updates
 ```
 
 ---
 
-## `rm -rf *` (THIS IS THE DANGEROUS ONE)
+## DIRECTORY OPERATIONS
 
-```bash
-rm -rf *
-```
-
-### What it does
-
-* Deletes **everything in the current directory**
-* Does **NOT** delete hidden files (`.git`, `.env`) unless globbing is extended
-
-### Variants that are even worse
-
-```bash
-rm -rf .* *      # deletes hidden files too (can brick your system)
-rm -rf /         # goodbye OS
-rm -rf ~         # wipes your home directory
-```
-
-### Hard truth
-
-If you run `rm -rf *` in the wrong directory:
-
-* There is **no undo**
-* No recycle bin
-* No “oops” recovery unless you had backups
-
----
-
-## Safer alternatives (use these unless you enjoy pain)
-
-```bash
-ls                      # ALWAYS check first
-pwd                     # confirm where you are
-rm -ri *                # asks before deleting each item
-rm -rf ./folder/*       # limit the blast radius
-```
-
-### Pro move
-
-```bash
-set -o noclobber        # prevents some destructive overwrites
-alias rm='rm -i'       # forces confirmation by default
+```sh
+mkdir dir               # create directory
+mkdir -p path/to/dir    # create parent dirs as needed
+rmdir dir               # remove empty directory
+rm -r dir               # delete directory recursively
+rm -rf dir              # force delete directory (dangerous)
 ```
 
 ---
 
-## Survival checklist before `rm -rf *`
+## DELETE FILES
 
-1. Run `pwd`
-2. Run `ls`
-3. Ask yourself: *“Am I okay losing ALL of this forever?”*
-4. If hesitation exists → **don’t run it**
+```sh
+rm file.txt             # delete file
+rm -i file.txt          # interactive delete
+rm -f file.txt          # force delete
+rm *                    # delete all files in current dir
+rm -r *                 # delete all files and directories
+rm -rf *                # delete everything without prompt (high risk)
+rm *.txt                # delete all .txt files
+rm .* *                 # delete hidden + normal files (very risky)
+```
 
 ---
 
+## COPY / MOVE / RENAME
 
+```sh
+cp src.txt dest.txt             # copy file
+cp -r dir1 dir2                 # copy directory recursively
+cp -a src dest                  # archive copy (preserve attrs)
+mv old.txt new.txt              # rename or move file
+mv file.txt /path/to/dir/       # move file
+mv dir1 dir2                    # rename directory
+```
+
+---
+
+## SEARCH & FIND
+
+```sh
+find . -name "file.txt"         # find file by name
+grep "text" file.txt            # search text in file
+grep -r "text" .                # recursive search
+```
+
+---
+
+## PERMISSIONS
+
+```sh
+ls -l                           # view permissions
+chmod 644 file.txt               # set permissions
+chmod +x script.sh               # make executable
+chown user:group file.txt        # change ownership (sudo if needed)
+```
+
+---
+
+## DISK USAGE
+
+```sh
+df -h                           # disk space usage
+du -sh dir                       # directory size
+```
+
+---
+
+## ARCHIVES
+
+```sh
+tar -czf archive.tar.gz dir       # create tar.gz
+tar -xzf archive.tar.gz           # extract tar.gz
+zip -r archive.zip dir            # create zip
+unzip archive.zip                 # extract zip
+```
+
+---
+
+## PROCESSES
+
+```sh
+ps                              # list processes
+ps aux                          # full list
+top                             # live process monitor
+kill PID                        # terminate process
+kill -9 PID                     # force kill
+```
+
+---
+
+## SUPERUSER
+
+```sh
+sudo command                     # run command as root
+su -                             # switch to root
+```
+
+---
+
+## REDIRECTION & PIPES
+
+```sh
+command > file.txt               # overwrite output
+command >> file.txt              # append output
+command < file.txt               # input from file
+command1 | command2              # pipe output
+ps aux | grep python             # example
+```
+
+---
+
+## WILDCARDS / GLOBBING
+
+```sh
+*       # all files (not hidden)
+?.txt   # any single char followed by .txt
+[abc]*  # starts with a, b, or c
+*.log   # all .log files
+```
+
+---
+
+## SAFETY TIPS
+
+* Always `ls` before destructive commands
+* Use `-i` for interactive deletes
+* `echo rm *` for dry-run
+* Never `rm -rf /` or blindly use wildcards in sensitive dirs
+
+---
 

@@ -1,295 +1,122 @@
 
-# Git & GitHub Cheat Sheet
+# GIT CHEAT SHEET
 
-## 1. Initial Git Setup
+## 1. INITIAL SETUP
 
-### Set global user identity
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email yourname@example.com
-```
-
-### Set default branch to `main`
-
-```bash
-git config --global init.defaultBranch main
-```
-
-### View global configuration
-
-```bash
-git config --list
-```
-
-### Get current Git user info
-
-```bash
-git config --get user.name
-git config --get user.email
+```sh
+git config --global user.name "Your Name"       # set global username
+git config --global user.email yourname@example.com  # set global email
+git config --global init.defaultBranch main    # default branch main
+git config --list                              # view global config
+git config --get user.name                     # get username
+git config --get user.email                    # get email
 ```
 
 ---
 
-## 2. Repository Initialization
+## 2. REPOSITORY INIT
 
-### Initialize a new repository
-
-```bash
-git init
-```
-
-### Clone an existing repository
-
-```bash
-git clone https://github.com/username/repo.git
+```sh
+git init                                      # initialize repo
+git clone https://github.com/username/repo.git  # clone repo
 ```
 
 ---
 
-## 3. Basic Workflow
+## 3. BASIC WORKFLOW
 
-### Check repository status
-
-```bash
-git status
-```
-
-### Track a file
-
-```bash
-git add filename
-```
-
-### Track all files
-
-```bash
-git add .
-```
-
-### Commit changes
-
-```bash
-git commit -m "Commit message"
-```
-
-### Add and commit in one command
-
-```bash
-git commit -am "Commit message"
-```
-
-(Works only for already tracked files)
-
----
-
-## 4. Branching
-
-### List branches
-
-```bash
-git branch
-```
-
-### Create a new branch
-
-```bash
-git branch branch-name
-```
-
-### Switch branch
-
-```bash
-git checkout branch-name
-```
-
-### Create and switch branch
-
-```bash
-git checkout -b branch-name
-```
-
-### Rename current branch
-
-```bash
-git branch -m new-branch-name
-```
-
-### Delete a branch
-
-```bash
-git branch -d branch-name
+```sh
+git status                                    # check repo status
+git add filename                              # track a file
+git add .                                     # track all files
+git commit -m "message"                       # commit changes
+git commit -am "message"                      # add & commit tracked files
 ```
 
 ---
 
-## 5. Remote Repositories (GitHub)
+## 4. BRANCHING
 
-### Add remote origin
-
-```bash
-git remote add origin https://github.com/username/repo.git
-```
-
-### View remotes
-
-```bash
-git remote -v
-```
-
-### Push to GitHub (first time)
-
-```bash
-git push -u origin main
-```
-
-### Push changes
-
-```bash
-git push
-```
-
-### Pull latest changes
-
-```bash
-git pull
+```sh
+git branch                                    # list branches
+git branch branch-name                         # create branch
+git checkout branch-name                       # switch branch
+git checkout -b branch-name                    # create & switch
+git branch -m new-branch-name                  # rename current branch
+git branch -d branch-name                      # delete branch
 ```
 
 ---
 
-## 6. Viewing History
+## 5. REMOTE REPOSITORIES
 
-### View commit history
-
-```bash
-git log
-```
-
-### Compact log view
-
-```bash
-git log --oneline
-```
-
-### View changes in a file
-
-```bash
-git diff
+```sh
+git remote add origin https://github.com/username/repo.git  # add remote
+git remote -v                                   # view remotes
+git push -u origin main                          # first push
+git push                                        # push changes
+git pull                                        # pull latest
 ```
 
 ---
 
-## 7. Undo & Fix
+## 6. VIEW HISTORY
 
-### Unstage a file
-
-```bash
-git restore --staged filename
-```
-
-### Discard local changes
-
-```bash
-git restore filename
-```
-
-### Amend last commit
-
-```bash
-git commit --amend
-```
-
-### Reset to previous commit (soft)
-
-```bash
-git reset --soft HEAD~1
-```
-
-### Reset to previous commit (hard)
-
-```bash
-git reset --hard HEAD~1
+```sh
+git log                                        # commit history
+git log --oneline                               # compact log
+git diff                                       # show changes
 ```
 
 ---
 
-## 8. Stashing
+## 7. UNDO & FIX
 
-### Save work temporarily
-
-```bash
-git stash
-```
-
-### List stashes
-
-```bash
-git stash list
-```
-
-### Apply stash
-
-```bash
-git stash apply
-```
-
-### Apply and remove stash
-
-```bash
-git stash pop
+```sh
+git restore --staged filename                  # unstage file
+git restore filename                           # discard local changes
+git commit --amend                             # amend last commit
+git reset --soft HEAD~1                         # soft reset previous commit
+git reset --hard HEAD~1                         # hard reset previous commit
 ```
 
 ---
 
-## 9. Tags
+## 8. STASHING
 
-### Create a tag
-
-```bash
-git tag v1.0.0
-```
-
-### Push tags
-
-```bash
-git push --tags
+```sh
+git stash                                      # save work temporarily
+git stash list                                 # list stashes
+git stash apply                                # apply stash
+git stash pop                                  # apply & remove stash
 ```
 
 ---
 
-## 10. GitHub Authentication
+## 9. TAGS
 
-### Set remote using SSH
-
-```bash
-git remote set-url origin git@github.com:username/repo.git
-```
-
-### Check SSH connection
-
-```bash
-ssh -T git@github.com
+```sh
+git tag v1.0.0                                # create tag
+git push --tags                                # push tags
 ```
 
 ---
 
-## 11. Useful Shortcuts
+## 10. GITHUB AUTHENTICATION
 
-### Show ignored files
-
-```bash
-git status --ignored
+```sh
+git remote set-url origin git@github.com:username/repo.git  # switch to SSH
+ssh -T git@github.com                               # check SSH connection
 ```
 
-### Clean untracked files
+---
 
-```bash
-git clean -fd
+## 11. USEFUL SHORTCUTS
+
+```sh
+git status --ignored                             # show ignored files
+git clean -fd                                    # remove untracked files/dirs
+git branch --show-current                        # show current branch
 ```
 
-### Show current branch
-
-```bash
-git branch --show-current
-```
 

@@ -87,6 +87,18 @@ p            # paste after cursor
 P            # paste before cursor
 ```
 
+## Select 
+```vim
+gg           # go to first line
+G            # go to last line
+V            # start line-wise visual mode
+v            # start character-wise visual mode
+ggVG         # select all (line-wise)
+ggvG         # select all (character-wise)
+ggVGy        # select all and copy (yank)
+ggVGd        # select all and delete
+ggVG=        # select all and auto-indent
+``
 Visual mode:
 
 ```vim

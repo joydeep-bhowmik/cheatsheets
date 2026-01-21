@@ -139,8 +139,5 @@ php artisan migrate
 * Ensure correct PHP & Composer versions are installed
 * Check file permissions if you hit 500 errors
 * If `public_html` already exists, remove it before creating the symlink
-* ```
-cd domains
-cd -
-  ```
+
 

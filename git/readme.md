@@ -119,7 +119,7 @@ git clean -fd                                    # remove untracked files/dirs
 git branch --show-current                        # show current branch
 ```
 
-## git removed .env from all history commit 
+## GIT REMOVE .env FROM GIT HISTORY
 First run 
 ```sh
 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env" --prune-empty --tag-name-filter cat -- --all

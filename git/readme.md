@@ -1,7 +1,7 @@
 
 # GIT CHEAT SHEET
 
-## 1. INITIAL SETUP
+##  INITIAL SETUP
 
 ```sh
 git config --global user.name "Your Name"       # set global username
@@ -14,7 +14,7 @@ git config --get user.email                    # get email
 
 ---
 
-## 2. REPOSITORY INIT
+## REPOSITORY INIT
 
 ```sh
 git init                                      # initialize repo
@@ -23,7 +23,7 @@ git clone https://github.com/username/repo.git  # clone repo
 
 ---
 
-## 3. BASIC WORKFLOW
+##  BASIC WORKFLOW
 
 ```sh
 git status                                    # check repo status
@@ -35,7 +35,7 @@ git commit -am "message"                      # add & commit tracked files
 
 ---
 
-## 4. BRANCHING
+##  BRANCHING
 
 ```sh
 git branch                                    # list branches
@@ -48,7 +48,7 @@ git branch -d branch-name                      # delete branch
 
 ---
 
-## 5. REMOTE REPOSITORIES
+##  REMOTE REPOSITORIES
 
 ```sh
 git remote add origin https://github.com/username/repo.git  # add remote
@@ -60,7 +60,7 @@ git pull                                        # pull latest
 
 ---
 
-## 6. VIEW HISTORY
+##  VIEW HISTORY
 
 ```sh
 git log                                        # commit history
@@ -70,7 +70,7 @@ git diff                                       # show changes
 
 ---
 
-## 7. UNDO & FIX
+##  UNDO & FIX
 
 ```sh
 git restore --staged filename                  # unstage file
@@ -82,7 +82,7 @@ git reset --hard HEAD~1                         # hard reset previous commit
 
 ---
 
-## 8. STASHING
+## STASHING
 
 ```sh
 git stash                                      # save work temporarily
@@ -93,7 +93,7 @@ git stash pop                                  # apply & remove stash
 
 ---
 
-## 9. TAGS
+## TAGS
 
 ```sh
 git tag v1.0.0                                # create tag
@@ -102,7 +102,7 @@ git push --tags                                # push tags
 
 ---
 
-## 10. GITHUB AUTHENTICATION
+##  GITHUB AUTHENTICATION
 
 ```sh
 git remote set-url origin git@github.com:username/repo.git  # switch to SSH
@@ -111,12 +111,24 @@ ssh -T git@github.com                               # check SSH connection
 
 ---
 
-## 11. USEFUL SHORTCUTS
+##  USEFUL SHORTCUTS
 
 ```sh
 git status --ignored                             # show ignored files
 git clean -fd                                    # remove untracked files/dirs
 git branch --show-current                        # show current branch
+```
+
+## git removed .env from all history commit 
+First run 
+```bash
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env" --prune-empty --tag-name-filter cat -- --all
+``
+clean github backup ref
+```git
+Remove-Item -Recurse -Force .git\refs\original
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
 ```
 
 

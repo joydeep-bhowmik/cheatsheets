@@ -121,11 +121,11 @@ git branch --show-current                        # show current branch
 
 ## git removed .env from all history commit 
 First run 
-```git
+```sh
 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env" --prune-empty --tag-name-filter cat -- --all
 ```
 clean github backup ref
-```git
+```sh
 Remove-Item -Recurse -Force .git\refs\original
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive

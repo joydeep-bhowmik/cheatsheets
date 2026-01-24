@@ -130,5 +130,10 @@ Remove-Item -Recurse -Force .git\refs\original
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 ```
+the run these 
+```sh
+git push origin --force --all
+git push origin --force --tags
+```
 
 

@@ -106,7 +106,6 @@ v → select → d
 
 ---
 
-## Search & Replace (this is non-negotiable)
 
 ### Search
 

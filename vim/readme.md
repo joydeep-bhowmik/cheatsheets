@@ -1,6 +1,6 @@
 
 
-# VIM CHEAT SHEET (Survival → Competent)
+# VIM CHEAT SHEET
 
 ## Modes (this matters or you’re dead in the water)
 

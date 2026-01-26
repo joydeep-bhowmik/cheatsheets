@@ -47,7 +47,6 @@ G            # bottom of file
 
 ---
 
-## Editing Like You Mean It
 
 ### Insert shortcuts
 
@@ -125,7 +124,7 @@ N            # previous match
 
 ---
 
-## Files (don’t panic)
+## Files 
 
 ```vim
 :w          # save
@@ -162,9 +161,7 @@ Ctrl+w w     # switch windows
 
 ---
 
-## Absolute Minimum You Must Memorize
 
-If you learn **nothing else**, learn this:
 
 ```
 Esc → :wq → Enter

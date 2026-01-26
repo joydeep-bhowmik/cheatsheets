@@ -2,9 +2,7 @@
 
 # VIM CHEAT SHEET
 
-## Modes (this matters or you’re dead in the water)
-
-Vim is **modal**. If you don’t understand this, everything else fails.
+## Modes
 
 * `NORMAL` → move, delete, copy (default)
 * `INSERT` → type text

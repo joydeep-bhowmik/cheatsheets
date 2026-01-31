@@ -111,6 +111,11 @@ ssh -T git@github.com                               # check SSH connection
 
 ---
 
+## GIT ALIAS 
+```sh
+git config --global alias.wip '!git add . && git commit -m "wip" && git push'
+```
+
 ##  USEFUL SHORTCUTS
 
 ```sh

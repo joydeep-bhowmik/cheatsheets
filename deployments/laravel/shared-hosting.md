@@ -1,22 +1,11 @@
 # without SSH
 placethis in ur root
 ```htaccess
-# To prevent access to .env and other files
-<Files .*>
-# Apache 2.2
-<IfModule !mod_authz_core.c>
-Order deny,allow
-Deny from all
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
-# Apache 2.4
-<IfModule mod_authz_core.c>
-Require all denied
-</IfModule>
-</Files>
 
-<IfModule mod_alias.c>
-RedirectMatch 301 ^/$ http://editflow.free.nf/public
-</IfModule>
 ```
 # SSH Deployment Guide (Laravel Project)
 

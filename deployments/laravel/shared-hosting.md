@@ -1,4 +1,4 @@
-# without SSH
+# Without SSH
 placethis in ur root
 ```htaccess
 <IfModule mod_rewrite.c>

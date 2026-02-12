@@ -1,5 +1,5 @@
 # Without SSH
-placethis in ur root
+Place this in ur root
 ```htaccess
 <IfModule mod_rewrite.c>
 RewriteEngine On

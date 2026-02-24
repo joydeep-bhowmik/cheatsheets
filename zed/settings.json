@@ -1,4 +1,5 @@
 {
+  "icon_theme": "JetBrains New UI Icons (Dark)",
   "buffer_font_family": "JetBrains Mono",
   "ui_font_size": 16,
   "buffer_font_size": 15,
@@ -22,7 +23,7 @@
           "arguments": [
             "-NoProfile",
             "-Command",
-            "vendor/bin/pint '{buffer_path}' > $null 2>&1; Get-Content -LiteralPath '{buffer_path}'",
+            "$tmp = New-TemporaryFile; $input | Set-Content -LiteralPath $tmp; vendor/bin/pint $tmp --quiet; Get-Content -LiteralPath $tmp; Remove-Item $tmp",
           ],
         },
       },
@@ -35,7 +36,7 @@
           "arguments": [
             "-NoProfile",
             "-Command",
-            "blade-formatter --write '{buffer_path}' > $null 2>&1; Get-Content -LiteralPath '{buffer_path}'",
+            "$input | blade-formatter --stdin",
           ],
         },
       },

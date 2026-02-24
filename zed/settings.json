@@ -1,6 +1,15 @@
 {
-  "icon_theme": "JetBrains New UI Icons (Dark)",
-  "buffer_font_family": "JetBrains Mono",
+  "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "deepseek-coder:latest",
+      "enable_thinking": false
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "icon_theme": "Catppuccin Frappé",
+  "buffer_font_family": ".ZedMono",
   "ui_font_size": 16,
   "buffer_font_size": 15,
 
@@ -11,7 +20,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "Catppuccin Frappé",
   },
 
   "languages": {
@@ -30,14 +39,22 @@
     },
 
     "Blade": {
+      "language_servers": ["tailwindcss-language-server"],
+      "tab_size": 4,
       "formatter": {
         "external": {
           "command": "powershell.exe",
-          "arguments": [
-            "-NoProfile",
-            "-Command",
-            "$input | blade-formatter --stdin",
-          ],
+          "arguments": ["-NoProfile", "-Command", "blade-formatter --stdin"],
+        },
+      },
+    },
+
+    "HTML": {
+      "language_servers": ["tailwindcss-language-server"],
+      "formatter": {
+        "external": {
+          "command": "powershell.exe",
+          "arguments": ["-NoProfile", "-Command", "blade-formatter --stdin"],
         },
       },
     },

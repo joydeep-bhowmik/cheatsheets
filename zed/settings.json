@@ -16,17 +16,26 @@
   "languages": {
     "PHP": {
       "language_servers": ["intelephense"],
-    },
-
-    "Blade": {
-      "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "powershell.exe",
           "arguments": [
             "-NoProfile",
             "-Command",
-            "Get-Content -LiteralPath '{buffer_path}' | blade-formatter --stdin",
+            "vendor/bin/pint '{buffer_path}' > $null 2>&1; Get-Content -LiteralPath '{buffer_path}'",
+          ],
+        },
+      },
+    },
+
+    "Blade": {
+      "formatter": {
+        "external": {
+          "command": "powershell.exe",
+          "arguments": [
+            "-NoProfile",
+            "-Command",
+            "blade-formatter --write '{buffer_path}' > $null 2>&1; Get-Content -LiteralPath '{buffer_path}'",
           ],
         },
       },

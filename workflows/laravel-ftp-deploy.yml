@@ -28,15 +28,15 @@ jobs:
       - name: Build Assets
         run: npm run build
 
+      # 5. Setup PHP
+      # - name: Setup PHP
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: 8.4
 
-      #5. Setup PHP
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.4
-      # 6. Install Composer dependencies - ( don't use it if your ftp server is very slow )
-      - name: Install Composer Dependencies
-        run: composer install --no-dev --optimize-autoloader
+      # # 6. Install Composer dependencies
+      # - name: Install Composer Dependencies
+      #   run: composer install --no-dev --optimize-autoloader
 
       # 7. Deploy via FTP
       - name: Deploy to Server
@@ -47,6 +47,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           server-dir: /
+          protocol: ftp
           dangerous-clean-slate: false
           exclude: |
             vendor/**

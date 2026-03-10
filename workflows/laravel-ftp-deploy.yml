@@ -55,7 +55,6 @@ jobs:
             .github/**
             node_modules/**
             tests/**
-            storage/**
             public/storage/**
             .env
             resources/js/**

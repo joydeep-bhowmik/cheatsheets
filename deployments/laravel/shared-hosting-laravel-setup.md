@@ -29,11 +29,10 @@ try {
 ```
 RewriteEngine On
 
-# Skip if already requesting /public
-RewriteCond %{REQUEST_URI} !^/public/
-
-# Redirect everything to /public
-RewriteRule ^(.*)$ /public/$1 [L]
+# Strip optional www, then only match a bare apex (exactly one dot, no further subdomain)
+RewriteCond %{HTTP_HOST} ^(?:www\.)?([^.]+\.[^.]+)$ [NC]
+RewriteCond %{REQUEST_URI} !^/%1/
+RewriteRule ^(.*)$ /%1/$1 [L]
 
 ```
 

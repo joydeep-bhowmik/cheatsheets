@@ -27,12 +27,11 @@ try {
 ```
 
 ```
+<IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
 
-# Strip optional www, then only match a bare apex (exactly one dot, no further subdomain)
-RewriteCond %{HTTP_HOST} ^(?:www\.)?([^.]+\.[^.]+)$ [NC]
-RewriteCond %{REQUEST_URI} !^/%1/
-RewriteRule ^(.*)$ /%1/$1 [L]
 
 ```
 
